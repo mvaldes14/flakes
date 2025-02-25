@@ -10,6 +10,10 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       flake = {
         templates = {
+          base = {
+            description = "Base DevShell";
+            path = ./template/base;
+          };
           iac = {
             description = "Packages for IaC";
             path = ./template/iac;
@@ -21,6 +25,14 @@
           k8s = {
             description = "Packages for working with Kubernetes";
             path = ./template/k8s;
+          };
+          go = {
+            description = "Packages for working with go";
+            path = ./template/golang;
+          };
+          django = {
+            description = "Packages for working with django";
+            path = ./template/django;
           };
         };
       };
