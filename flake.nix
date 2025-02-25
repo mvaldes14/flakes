@@ -14,6 +14,10 @@
             description = "Base DevShell";
             path = ./template/base;
           };
+          neovim = {
+            description = "Neovim Base DevShell";
+            path = ./template/neovim-plugin/;
+          };
           iac = {
             description = "Packages for IaC";
             path = ./template/iac;
