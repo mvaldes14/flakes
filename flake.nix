@@ -16,7 +16,7 @@
           };
           neovim = {
             description = "Neovim Base DevShell";
-            path = ./template/neovim-plugin/;
+            path = ./template/neovim-plugin;
           };
           iac = {
             description = "Packages for IaC";
