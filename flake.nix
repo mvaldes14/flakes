@@ -14,6 +14,14 @@
             description = "Packages for IaC";
             path = ./template/iac;
           };
+          ansible = {
+            description = "Packages for Ansible development";
+            path = ./template/ansible;
+          };
+          k8s = {
+            description = "Packages for working with Kubernetes";
+            path = ./template/k8s;
+          };
         };
       };
       systems = ["x86_64-linux" "aarch64-linux"];
