@@ -15,11 +15,13 @@
         system,
         ...
       }: let
-        inherit (pkgs) mkShell;
+        pkgsUnfree = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
       in {
         devShells = {
           default = mkShell {
-            buildInputs = with pkgs; [terraform tfsec tflint];
+            buildInputs = with pkgsUnfree; [terraform tfsec tflint terraform-ls];
             shellHook = ''
               Commands available:
               - terraform
@@ -30,4 +32,5 @@
         };
       };
     };
+
 }
