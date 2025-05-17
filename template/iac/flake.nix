@@ -6,7 +6,12 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs @ {flake-parts, ...}:
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    flake-parts,
+    ...
+  }:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin"];
 
@@ -17,20 +22,14 @@
       }: let
         pkgsUnfree = import nixpkgs {
           inherit system;
-          config.allowUnfree = true;
+          config = {allowUnfree = true;};
+        };
       in {
         devShells = {
-          default = mkShell {
+          default = pkgs.mkShell {
             buildInputs = with pkgsUnfree; [terraform tfsec tflint terraform-ls];
-            shellHook = ''
-              Commands available:
-              - terraform
-              - tfsec
-              - tflint
-            '';
           };
         };
       };
     };
-
 }
