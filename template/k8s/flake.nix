@@ -23,6 +23,7 @@
               kubectl
               k9s
               helm
+              stern
             ];
             shellHook = ''
               Commands available:

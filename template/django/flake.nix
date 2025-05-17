@@ -24,6 +24,7 @@
               pythonPackages.poetry
               pythonPackages.django
               pyright
+              ruff
             ];
           };
         };
